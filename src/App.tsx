@@ -117,8 +117,8 @@ export default function App() {
                 <ul className="space-y-3 text-sm text-slate-400 text-center">
                   <li className="hover:text-purple-300 transition-colors">React</li>
                   <li className="hover:text-purple-300 transition-colors">Next.js</li>
-                  <li className="hover:text-purple-300 transition-colors">JavaScript</li>
-                  <li className="hover:text-purple-300 transition-colors">TypeScript</li>
+                  <li className="hover:text-purple-300 transition-colors">JavaScript y TypeScript</li>
+                  <li className="hover:text-purple-300 transition-colors">Vue</li>
                 </ul>
               </div>
 
@@ -197,8 +197,9 @@ export default function App() {
               </div>
               <div className="p-8 pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">React</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Next.js</span>
                   <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Node.js</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">TypeScript</span>
                 </div>
                 <a href="https://github.com/belencita12/IISS2" target="_blank" rel="noreferrer" className="text-teal-400 hover:text-teal-300 text-sm font-semibold flex items-center gap-2 group-hover:underline">
                   <Github size={18} />
@@ -226,8 +227,8 @@ export default function App() {
               </div>
               <div className="p-8 pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Java</span>
-                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Spring Boot</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Python</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Pygame</span>
                 </div>
                 <a href="https://github.com/DarkRonier/Gridfall" target="_blank" rel="noreferrer" className="text-teal-400 hover:text-teal-300 text-sm font-semibold flex items-center gap-2 group-hover:underline">
                   <Github size={18} />
@@ -255,8 +256,7 @@ export default function App() {
               </div>
               <div className="p-8 pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">TypeScript</span>
-                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Next.js</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">React</span>
                 </div>
                 <span className="text-slate-500 text-sm font-medium flex items-center gap-2">
                   <ExternalLink size={18} />
