@@ -1,8 +1,6 @@
 # Imágenes del portafolio
 
-> **Importante:** las imágenes reales no se suben a este repositorio público.
-> Se ignoran por `.gitignore` y se almacenan de forma cifrada en `src/assets/private/`.
-> El workflow de GitHub Pages las descifra durante el deploy usando un secret.
+Colocá aquí tus imágenes para que se muestren en el sitio.
 
 ## Estructura esperada
 
@@ -18,11 +16,7 @@ src/assets/images/
 
 `.png`, `.jpg`, `.jpeg`, `.webp`
 
-## Flujo de trabajo
+## Nota
 
-1. Colocá tus imágenes reales en estas carpetas localmente para desarrollo.
-2. Ejecutá `npm run encrypt-assets` para generar los archivos cifrados en `src/assets/private/`.
-3. Commiteá y pusheá solo los archivos `.enc`; las imágenes originales permanecen fuera del repo.
-4. Durante el deploy, GitHub Actions descifra los assets con el secret `PRIVATE_ASSETS_KEY`.
-
+Estas imágenes se suben al repositorio y se incluyen en el deploy de GitHub Pages.
 Si no hay imágenes disponibles, la app muestra placeholders por defecto sin fallar.

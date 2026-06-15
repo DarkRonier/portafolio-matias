@@ -23,10 +23,6 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - name: Decrypt private assets
-        run: npm run decrypt-assets
-        env:
-          PRIVATE_ASSETS_KEY: ${{ secrets.PRIVATE_ASSETS_KEY }}
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
