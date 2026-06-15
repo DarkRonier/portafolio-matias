@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { 
   Github, 
   Linkedin, 
@@ -10,31 +9,17 @@ import {
   Rocket, 
   User,
   FolderGit2,
-  Code2,
-  ExternalLink
+  Code2
 } from 'lucide-react';
 import { useProfileImage, useProjectImages } from './hooks/useImages';
 import { ImageGallery } from './components/ImageGallery';
 
 export default function App() {
-  const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const profileImage = useProfileImage();
   const project1Images = useProjectImages('nicopets');
   const project2Images = useProjectImages('gridfall');
   const project3Images = useProjectImages('design3d');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulación de envío
-    setTimeout(() => {
-      alert("¡Mensaje enviado con éxito!");
-      setFormData({ nombre: '', email: '', mensaje: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
+  const project4Images = useProjectImages('realtime-order-management-system');
 
   return (
     <div className="h-screen overflow-y-auto scroll-smooth bg-[#0f172a] text-[#e2e8f0] font-sans antialiased">
@@ -186,7 +171,7 @@ export default function App() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* NicoPets */}
             <div className="bg-[#1e293b] rounded-2xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all flex flex-col justify-between shadow-lg group">
@@ -264,10 +249,41 @@ export default function App() {
               <div className="p-8 pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-6">
                   <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">React</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">JavaScript</span>
                 </div>
                 <a href="https://github.com/DarkRonier/editor-3d" target="_blank" rel="noreferrer" className="text-teal-400 hover:text-teal-300 text-sm font-semibold flex items-center gap-2 group-hover:underline">
-                  <ExternalLink size={18} />
-                  Ver Proyecto
+                  <Github size={18} />
+                  Ver Código
+                </a>
+              </div>
+            </div>
+
+            {/* Control de Pedidos */}
+            <div className="bg-[#1e293b] rounded-2xl overflow-hidden border border-slate-800 hover:border-rose-500 transition-all flex flex-col justify-between shadow-lg group">
+              <div>
+                <div className="h-56 bg-slate-800 border-b border-slate-700 relative overflow-hidden">
+                  <ImageGallery images={project4Images} className="absolute inset-0" placeholder={<span className="text-slate-500 font-medium z-10">[ Imagen Control de Pedidos ]</span>} />
+                </div>
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-2xl font-bold group-hover:text-rose-400 transition-colors">Control de Pedidos</h3>
+                    <span className="text-xs font-bold bg-slate-800 px-3 py-1.5 rounded-full text-yellow-500 border border-yellow-500/30">Propietario</span>
+                  </div>
+                  <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                    Sistema fullstack de gestión de pedidos en tiempo real para un negocio de comidas. Incluye backend NestJS, frontend Next.js, app móvil Capacitor, bot de WhatsApp, dashboard Kanban, notificaciones push y base de datos PostgreSQL.
+                  </p>
+                </div>
+              </div>
+              <div className="p-8 pt-0 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">NestJS</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Next.js</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">PostgreSQL</span>
+                  <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">Capacitor</span>
+                </div>
+                <a href="https://github.com/DarkRonier/realtime-order-management-system" target="_blank" rel="noreferrer" className="text-teal-400 hover:text-teal-300 text-sm font-semibold flex items-center gap-2 group-hover:underline">
+                  <Github size={18} />
+                  Ver Código
                 </a>
               </div>
             </div>
@@ -297,7 +313,7 @@ export default function App() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 uppercase tracking-wider font-bold">Email</p>
-                  <p className="font-medium text-slate-200 text-lg">matibru4@gmail.com</p>
+                  <p className="font-medium text-slate-200 text-lg">matibru.bsn@gmail.com</p>
                 </div>
               </div>
               
@@ -324,52 +340,27 @@ export default function App() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-[#1e293b] p-8 md:p-10 rounded-2xl border border-slate-700 shadow-2xl">
-            <div className="mb-6">
-              <label className="block text-sm font-bold mb-2 text-slate-300">Nombre Completo</label>
-              <input 
-                type="text" 
-                required
-                placeholder="Ej. Juan Pérez"
-                value={formData.nombre}
-                onChange={(e) => setFormData({...formData, nombre: e.target.value})}
-                className="w-full bg-[#0f172a] border border-slate-600 rounded-lg p-4 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm font-bold mb-2 text-slate-300">Correo Electrónico</label>
-              <input 
-                type="email" 
-                required
-                placeholder="tu@email.com"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full bg-[#0f172a] border border-slate-600 rounded-lg p-4 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-              />
-            </div>
-            <div className="mb-8">
-              <label className="block text-sm font-bold mb-2 text-slate-300">Mensaje</label>
-              <textarea 
-                rows={4} 
-                required
-                placeholder="¿En qué te puedo ayudar?"
-                value={formData.mensaje}
-                onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
-                className="w-full bg-[#0f172a] border border-slate-600 rounded-lg p-4 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none"
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className={`w-full font-bold py-4 rounded-lg transition-all shadow-lg flex justify-center items-center gap-2 ${
-                isSubmitting 
-                  ? 'bg-slate-700 text-slate-400 cursor-not-allowed' 
-                  : 'bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-400 hover:to-teal-500 text-white hover:shadow-teal-500/25'
-              }`}
+          <div className="bg-[#1e293b] p-8 md:p-10 rounded-2xl border border-slate-700 shadow-2xl flex flex-col items-center justify-center text-center">
+            <h3 className="text-2xl font-bold mb-4 text-white">¿Trabajamos juntos?</h3>
+            <p className="text-slate-400 mb-8 max-w-sm">
+              Hacé click para abrir Gmail y escribirme directamente.
+            </p>
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=matibru.bsn@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full md:w-auto font-bold py-4 px-10 rounded-lg transition-all shadow-lg flex justify-center items-center gap-2 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-400 hover:to-teal-500 text-white hover:shadow-teal-500/25"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
-            </button>
-          </form>
+              <Mail size={20} />
+              Contactar
+            </a>
+            <p className="text-slate-500 text-xs mt-6 max-w-xs">
+              Si no usás Gmail, podés escribirme desde{' '}
+              <a href="https://outlook.live.com/mail/0/deeplink/compose?to=matibru.bsn@gmail.com" target="_blank" rel="noreferrer" className="text-teal-400 hover:underline">Outlook</a>{' '}
+              o copiar el correo:{' '}
+              <span className="text-slate-300">matibru.bsn@gmail.com</span>
+            </p>
+          </div>
         </div>
       </section>
 
