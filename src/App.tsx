@@ -265,10 +265,10 @@ export default function App() {
                 <div className="flex flex-wrap gap-2 mb-6">
                   <span className="text-xs font-medium bg-[#0f172a] px-3 py-1.5 rounded text-slate-300 border border-slate-700">React</span>
                 </div>
-                <span className="text-slate-500 text-sm font-medium flex items-center gap-2">
+                <a href="https://github.com/DarkRonier/editor-3d" target="_blank" rel="noreferrer" className="text-teal-400 hover:text-teal-300 text-sm font-semibold flex items-center gap-2 group-hover:underline">
                   <ExternalLink size={18} />
-                  Link pendiente de despliegue
-                </span>
+                  Ver Proyecto
+                </a>
               </div>
             </div>
 
