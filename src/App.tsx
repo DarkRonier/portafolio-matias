@@ -13,10 +13,17 @@ import {
   Code2,
   ExternalLink
 } from 'lucide-react';
+import { useProfileImage, useProjectImages } from './hooks/useImages';
+import { ImageGallery } from './components/ImageGallery';
 
 export default function App() {
   const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const profileImage = useProfileImage();
+  const project1Images = useProjectImages('nicopets');
+  const project2Images = useProjectImages('gridfall');
+  const project3Images = useProjectImages('design3d');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,8 +58,11 @@ export default function App() {
       <section id="inicio" className="min-h-[85vh] flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-[#0f172a] to-[#111827] pt-20 pb-10">
         <div className="mb-8 relative group">
           <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.3)] mx-auto bg-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-            {/* Placeholder para tu foto */}
-            <User size={64} className="text-slate-400" />
+            {profileImage ? (
+              <img src={profileImage} alt="Matias Brunaga" className="w-full h-full object-cover" />
+            ) : (
+              <User size={64} className="text-slate-400" />
+            )}
           </div>
         </div>
         
@@ -181,9 +191,8 @@ export default function App() {
             {/* NicoPets */}
             <div className="bg-[#1e293b] rounded-2xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all flex flex-col justify-between shadow-lg group">
               <div>
-                <div className="h-56 bg-slate-800 flex items-center justify-center text-slate-500 font-medium border-b border-slate-700 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-slate-900/80 z-0"></div>
-                  <span className="z-10">[ Imagen NicoPets ]</span>
+                <div className="h-56 bg-slate-800 border-b border-slate-700 relative overflow-hidden">
+                  <ImageGallery images={project1Images} className="absolute inset-0" placeholder={<span className="text-slate-500 font-medium z-10">[ Imagen NicoPets ]</span>} />
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">
@@ -211,9 +220,8 @@ export default function App() {
             {/* Gridfall */}
             <div className="bg-[#1e293b] rounded-2xl overflow-hidden border border-slate-800 hover:border-yellow-500 transition-all flex flex-col justify-between shadow-lg group">
               <div>
-                <div className="h-56 bg-slate-800 flex items-center justify-center text-slate-500 font-medium border-b border-slate-700 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/20 to-slate-900/80 z-0"></div>
-                  <span className="z-10">[ Imagen Gridfall ]</span>
+                <div className="h-56 bg-slate-800 border-b border-slate-700 relative overflow-hidden">
+                  <ImageGallery images={project2Images} className="absolute inset-0" placeholder={<span className="text-slate-500 font-medium z-10">[ Imagen Gridfall ]</span>} />
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">
@@ -240,9 +248,8 @@ export default function App() {
             {/* Design3D */}
             <div className="bg-[#1e293b] rounded-2xl overflow-hidden border border-slate-800 hover:border-teal-500 transition-all flex flex-col justify-between shadow-lg group">
               <div>
-                <div className="h-56 bg-slate-800 flex items-center justify-center text-slate-500 font-medium border-b border-slate-700 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-slate-900/80 z-0"></div>
-                  <span className="z-10">[ Imagen Design3D ]</span>
+                <div className="h-56 bg-slate-800 border-b border-slate-700 relative overflow-hidden">
+                  <ImageGallery images={project3Images} className="absolute inset-0" placeholder={<span className="text-slate-500 font-medium z-10">[ Imagen Design3D ]</span>} />
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">

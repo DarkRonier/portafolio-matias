@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "encrypt-assets": "node scripts/encrypt-assets.mjs",
+    "decrypt-assets": "node scripts/decrypt-assets.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.460.0",
