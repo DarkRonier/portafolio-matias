@@ -9,7 +9,8 @@ import {
   Rocket, 
   User,
   FolderGit2,
-  Code2
+  Code2,
+  Palette
 } from 'lucide-react';
 import { useProfileImage, useProjectImages } from './hooks/useImages';
 import { ImageGallery } from './components/ImageGallery';
@@ -86,11 +87,11 @@ export default function App() {
         <div className="bg-[#1e293b] p-8 md:p-12 rounded-2xl border border-slate-700 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-16">
             <div className="p-6 bg-[#0f172a] rounded-xl border border-slate-800 shadow-inner">
-              <h3 className="text-4xl font-black text-purple-400 mb-2">2+</h3>
+              <h3 className="text-4xl font-black text-purple-400 mb-2">3+</h3>
               <p className="text-sm text-slate-400 font-medium uppercase tracking-wider">Años de Experiencia</p>
             </div>
             <div className="p-6 bg-[#0f172a] rounded-xl border border-slate-800 shadow-inner">
-              <h3 className="text-4xl font-black text-teal-400 mb-2">3+</h3>
+              <h3 className="text-4xl font-black text-teal-400 mb-2">4+</h3>
               <p className="text-sm text-slate-400 font-medium uppercase tracking-wider">Proyectos Destacados</p>
             </div>
             <div className="p-6 bg-[#0f172a] rounded-xl border border-slate-800 shadow-inner">
@@ -101,7 +102,7 @@ export default function App() {
 
           <div id="habilidades" className="pt-4">
             <h3 className="text-3xl font-bold text-center mb-10">Habilidades & Tecnologías</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               
               {/* Frontend */}
               <div className="bg-[#0f172a] p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
@@ -140,7 +141,7 @@ export default function App() {
                   <li className="hover:text-yellow-300 transition-colors">Prog. Agéntica</li>
                   <li className="hover:text-yellow-300 transition-colors">OpenCode</li>
                   <li className="hover:text-yellow-300 transition-colors">Claude Code</li>
-                  <li className="hover:text-yellow-300 transition-colors">Hermes</li>
+                  
                 </ul>
               </div>
 
@@ -154,7 +155,18 @@ export default function App() {
                   <li className="hover:text-blue-300 transition-colors">Spring Boot</li>
                   <li className="hover:text-blue-300 transition-colors">Vercel</li>
                   <li className="hover:text-blue-300 transition-colors">Git / GitHub</li>
-                  <li className="hover:text-blue-300 transition-colors">Canva</li>
+                </ul>
+              </div>
+
+              {/* Diseño */}
+              <div className="bg-[#0f172a] p-6 rounded-xl border border-slate-700 hover:border-pink-500/50 transition-colors">
+                <div className="flex items-center justify-center mb-4 text-pink-400">
+                  <Palette size={32} />
+                </div>
+                <h4 className="text-center font-bold text-slate-200 mb-4 border-b border-slate-800 pb-3">Diseño</h4>
+                <ul className="space-y-3 text-sm text-slate-400 text-center">
+                  <li className="hover:text-pink-300 transition-colors">Figma</li>
+                  <li className="hover:text-pink-300 transition-colors">Canva</li>
                 </ul>
               </div>
 
